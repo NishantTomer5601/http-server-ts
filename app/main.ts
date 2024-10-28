@@ -2,9 +2,15 @@ import * as net from "net";
 
 
 const server = net.createServer((socket) => {
-    const response = `HTTP/1.1 200 OK\r\n\r\n`;
-    socket.write(response);
-    socket.end();
+    socket.on('data',(data)=>{
+        const reqData=data.toString();
+        const requestLines=reqData.split('\r\n');
+        const requestLine = requestLines[0];
+        const [method, path, httpVersion] = requestLine.split(' ');
+        socket.write(path);
+        socket.end();
+    })
+    
 });
 
 server.listen(4221, "localhost");
