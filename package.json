@@ -1,6 +1,6 @@
 {
   "name": "@codecrafters/http-server",
-  "description": "Build your own HTTP server challenge, from CodeCrafters",
+  "description": "Build your own HTTP server.",
   "type": "module",
   "scripts": {
     "dev": "bun run app/main.ts"
